@@ -4,7 +4,22 @@
 # Заготовка для программы
 # Все блоки комментариев начианющихся с TODO - необходимо заменить на работающие части программы
 
+import serial
+import socket
+import constants
+from __future__ import print_function
+
 # TODO - написать функцию считывания данных с последовательного порта
+
+def readCardDataFromSerial():
+        dataFromSerial = ""
+        currentChar = ''
+        serialReader = serial.Serial("/dev/ttyUSB0", baudrate = 9600)
+        while currentChar != '\r':
+                currentChar = serialReader.read()
+                dataFromSerial += currentChar
+        serialReader.close()
+        return(dataFromSerial)
 
 # TODO - написать функцию-парсер, возвращающую идентификатор карты
 
