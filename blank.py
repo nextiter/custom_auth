@@ -11,15 +11,16 @@ from __future__ import print_function
 
 # TODO - написать функцию считывания данных с последовательного порта
 
-def readCardDataFromSerial():
-        dataFromSerial = ""
-        currentChar = ''
-        serialReader = serial.Serial("/dev/ttyUSB0", baudrate = 9600)
-        while currentChar != '\r':
-                currentChar = serialReader.read()
-                dataFromSerial += currentChar
-        serialReader.close()
-        return(dataFromSerial)
+
+def read_card_data_from_serial():
+        data_from_serial = ""
+        current_char = ''
+        serial_reader = serial.Serial("/dev/ttyUSB0", baudrate=9600)
+        while current_char != '\r':
+                current_char = serial_reader.read()
+                data_from_serial += current_char
+        serial_reader.close()
+        return data_from_serial
 
 # TODO - написать функцию-парсер, возвращающую идентификатор карты
 
