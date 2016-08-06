@@ -7,9 +7,9 @@
 import serial
 import socket
 import constants
-from __future__ import print_function
+#from __future__ import print_function
 
-# TODO - написать функцию считывания данных с последовательного порта
+# функция считывания данных с последовательного порта
 
 
 def read_card_data_from_serial():
@@ -23,6 +23,17 @@ def read_card_data_from_serial():
         return data_from_serial
 
 # TODO - написать функцию-парсер, возвращающую идентификатор карты
+
+
+def parse_id_from_card_data(card_data):
+    try:
+        second_block = card_data.split(',')[1]
+    except IndexError:
+        return 0
+    try:
+        return int(second_block.split()[2])
+    except ValueError:
+        return 0
 
 # TODO - написать функцию отправляющую запрос об идентификаторе на сервер и получающую ответ
 #  (в виде заглушки, с авторизацией по моей карте)
