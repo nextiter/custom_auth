@@ -46,6 +46,10 @@ def request_permission_for_auth(card_id):
         arm_socket.close()
     return data
 
+data_for_parse = read_card_data_from_serial()
+card_id = parse_id_from_card_data(data_for_parse)
+print card_id
+
 # TODO - написать функцию, которая авторизует пользователя (или нет)
 
 # TODO - выявить исключения, с которыми программа падает и написать обработчики для них
