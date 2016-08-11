@@ -28,6 +28,7 @@ while True:
     arm_request = data.decode('utf-8')
     if arm_request == '8204887':
         conn.sendall('ALLOW')
+        print "allow"
     else:
         conn.sendall('DENY')
-
+        print "deny because ", arm_request
