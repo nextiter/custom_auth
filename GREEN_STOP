@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 #
-# OPEN
-# Отправляет на локальный сокет команду открытия замка
+# GREEN_STOP
+# Отправляет на локальный сокет команду выключения зеленой лампы
 # 23.08.2016
 # author S.Ivakhov <nextiter@gmail.com>
 #
@@ -15,5 +15,5 @@ PORT = 9090
 
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client_socket.connect((SERVER_HOST, PORT))
-client_socket.sendall('open')
+client_socket.sendall('stop_green')
 client_socket.close()
